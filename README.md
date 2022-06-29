@@ -229,6 +229,8 @@ https://github.com/neelsoumya/rlib/blob/master/rmarkdown_analysis_template.rmd
 
 ## Resources
 
+https://rmarkdown.rstudio.com/lesson-1.html
+
 https://ropensci.org/
 
 https://bookdown.org/home/
