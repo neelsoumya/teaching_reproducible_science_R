@@ -1,0 +1,166 @@
+################################################################################################
+# Example code to perform logistic regression
+#   	and plot ROC curve and 
+#	    precision recall curve	
+#     and calculate AUC and AUPR
+#
+# Acknowledgements:
+#	Adapted from
+#	https://stackoverflow.com/questions/18449013/r-logistic-regression-area-under-curve
+#	answer by user wush978	
+# and
+# https://stats.stackexchange.com/questions/10501/calculating-aupr-in-r
+# answer by user arun
+# 
+# Usage: 
+#     nohup R --no-save < logistic_regression_roc_curve.R
+#
+# Installation:
+#     install.packages("pROC")
+#     install.packages("precrec")
+#     install.packages("PRROC")
+#
+################################################################################################
+
+############################
+# Load libraries
+############################
+library(pROC)
+library(precrec)
+library(PRROC)
+library(boot)
+# LIBRARY_PREFIX <- "https://egret.psychol.cam.ac.uk/rlib/"
+# source(paste0(LIBRARY_PREFIX, "cris_common.R"))
+
+source("https://raw.githubusercontent.com/neelsoumya/rlib/master/cris_common.R")
+
+
+# df_metagene_score_final is a data frame with two columns:
+#	flag_yes_no: target (1 or 0)
+#	metagene_score: continuous variable
+
+###############################
+# Load synthetic data
+###############################
+df_metagene_score_final = read.csv('metagene_score.csv', 
+                                  sep = ',', header = TRUE, 
+                                  stringsAsFactors=FALSE, na.strings="..")
+
+
+########################
+# Test train split
+########################
+#set.seed(1)
+TRAIN = sample(c(TRUE,FALSE),
+                  nrow(df_metagene_score_final),
+                  replace = TRUE)
+
+TEST = (!TRAIN)
+
+df_metagene_score_final_TRAIN = df_metagene_score_final[TRAIN,]
+df_metagene_score_final_TEST  = df_metagene_score_final[TEST,]
+
+
+###############################
+# Perform logistic regression
+#     on training set
+###############################
+mylogit <- glm(flag_yes_no ~ metagene_score, 
+               data = df_metagene_score_final_TRAIN, 
+               family = "binomial")
+
+#######################################
+# Check linear model distributions
+#######################################
+miscstat$check_distribution(model = glm_object_best)
+
+
+#######################################
+# Visualize parameter distributions
+# holds for linear mixed effects models lmer()
+#######################################
+# cris$visualize_fixed_effects_from_lmer(lmer_result = glm_object_best)
+# cris$fixed_effects_from_lmer(lmer_result = glm_object_best)
+
+
+###############################
+# predict on test set
+###############################
+prob = predict(mylogit, 
+               type=c("response"),
+               newdata = df_metagene_score_final_TEST)
+df_metagene_score_final_TEST$prob = prob
+
+
+###############################
+# Additional code to do 
+#   cross-validation NOT USED
+# on TRAINING SET
+###############################
+cost <- function(r, pi=0) mean(abs(r-pi)>0.5)
+cv_err <- cv.glm(data = df_metagene_score_final_TRAIN,
+                 K = 4,
+                 cost = cost,
+                 glmfit = mylogit
+)
+
+# can use the following to perform model selection if necessary
+cv_err$delta[1]
+
+
+###############################
+# Generate ROC curves
+#   on TEST SET
+###############################
+g <- pROC::roc(flag_yes_no ~ prob, data=df_metagene_score_final_TEST)
+
+plot(g)
+
+cat("AUC is:", g$auc)
+
+
+############################
+# Precision recall curve
+#     on test set
+############################
+mmdata_flag = mmdata(df_metagene_score_final_TEST$metagene_score,
+                     df_metagene_score_final_TEST$flag_yes_no)
+smcurves <- evalmod(mmdata_flag, raw_curves = TRUE)
+
+# We also show the precision recall curve below 
+# which is better suited for cases in which there are class imbalances.
+
+plot(smcurves, raw_curves = FALSE)
+
+############################
+# even better AUC and AUPR 
+# curves with areas reportet
+#   on TEST SET
+############################
+
+fg <- prob[df_metagene_score_final_TEST$flag_yes_no == 1]
+bg <- prob[df_metagene_score_final_TEST$flag_yes_no == 0]
+
+# ROC Curve    
+roc <- roc.curve(scores.class0 = fg, scores.class1 = bg, curve = TRUE)
+plot(roc)
+
+# PR Curve
+pr <- pr.curve(scores.class0 = fg, scores.class1 = bg, curve = TRUE)
+plot(pr)
+
+cat("AUPR is:", pr$auc.integral)
+
+
+##################################
+# Better AUPR plot using ggplot
+##################################
+source("convert_aupr_to_ggplot.R")
+
+i_y_line_threshold_signif_aupr = length(which(df_metagene_score_final$flag_yes_no == 1))/(length(which(df_metagene_score_final$flag_yes_no == 1)) + length(which(df_metagene_score_final$flag_yes_no == 0)))
+
+convert_aupr_to_ggplot(i_y_line_threshold_signif=i_y_line_threshold_signif_aupr, 
+                                   prroc_object=pr,
+                                   str_filename_save="aupr_ggplot.pdf")
+
+
