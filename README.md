@@ -201,6 +201,14 @@ misclang$library_or_install(REQUIRED_PACKAGES)
 
 https://github.com/neelsoumya/rlib/blob/master/rmarkdown_analysis_template.rmd
 
+## Resources
+
+https://ropensci.org/
+
+https://bookdown.org/home/
+
+https://github.com/neelsoumya/dsSurvival_bookdown
+
 ## Contact
 
 
