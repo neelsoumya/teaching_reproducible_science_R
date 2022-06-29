@@ -1,6 +1,6 @@
 ---
 title: "Meta-analysis of survival models in the DataSHIELD platform"
-author: "Soumya Banerjee and Tom Bishop"
+author: "Soumya Banerjee"
 date: "30 April 2021"
 output:
   pdf_document:
@@ -52,41 +52,28 @@ library(knitr)
 library(rmarkdown)
 library(tinytex)
 library(survival)
-library(metafor)
-library(ggplot2)
-library(survminer)
-require('DSI')
-require('DSOpal')
-require('dsBaseClient')
+library(pROC)
+library(precrec)
+library(PRROC)
+library(boot)
+# LIBRARY_PREFIX <- "https://egret.psychol.cam.ac.uk/rlib/"
+# source(paste0(LIBRARY_PREFIX, "cris_common.R"))
+
+source("https://raw.githubusercontent.com/neelsoumya/rlib/master/cris_common.R")
 
 #######################
 # Get data
 #######################
-builder <- DSI::newDSLoginBuilder()
+df_metagene_score_final = read.csv('metagene_score.csv', 
+                                  sep = ',', header = TRUE, 
+                                  stringsAsFactors=FALSE, na.strings="..")
 
-builder$append(server = "study1", 
-               url = "http://192.168.56.100:8080/", 
-               user = "administrator", password = "datashield_test&", 
-               table = "SURVIVAL.EXPAND_NO_MISSING1", driver = "OpalDriver")
-builder$append(server = "study2", 
-               url = "http://192.168.56.100:8080/", 
-               user = "administrator", password = "datashield_test&", 
-               table = "SURVIVAL.EXPAND_NO_MISSING2", driver = "OpalDriver")
-builder$append(server = "study3", 
-               url = "http://192.168.56.100:8080/", 
-               user = "administrator", password = "datashield_test&", 
-               table = "SURVIVAL.EXPAND_NO_MISSING3", driver = "OpalDriver")
-
-logindata <- builder$build()
-
-##############
-# login
-##############
-
-# Log onto the remote Opal training servers
-connections <- DSI::datashield.login(logins = logindata, assign = TRUE, symbol = "D") 
 
 ```
+
+# Visualize data
+
+todo histogram
 
 # Creating server-side variables for survival analysis
 
@@ -142,96 +129,124 @@ ds.asNumeric(x.name = "D$endtime",
 
 ```{r, include=FALSE}
 
-# make sure that the outcome is numeric 
-ds.asNumeric(x.name = "D$cens",
-             newobj = "EVENT",
-             datasources = connections)
+RAIN = sample(c(TRUE,FALSE),
+                  nrow(df_metagene_score_final),
+                  replace = TRUE)
 
-ds.asNumeric(x.name = "D$survtime",
-             newobj = "SURVTIME",
-             datasources = connections)
+TEST = (!TRAIN)
 
-# convert time id variable to a factor 
-ds.asFactor(input.var.name = "D$time.id",
-            newobj = "TID",
-            datasources = connections)
+df_metagene_score_final_TRAIN = df_metagene_score_final[TRAIN,]
+df_metagene_score_final_TEST  = df_metagene_score_final[TEST,]
 
-# create in the server-side the log(survtime) variable
-ds.log(x = "D$survtime",
-       newobj = "log.surv",
-       datasources = connections)
-
-# create start time variable
-ds.asNumeric(x.name = "D$starttime",
-             newobj = "STARTTIME",
-             datasources = connections)
-
-# create end time variable
-ds.asNumeric(x.name = "D$endtime",
-             newobj = "ENDTIME",
-             datasources = connections)
-
-
-# check which variables exist
-dsBaseClient::ds.ls()
-
-# call new function modify NAMESPACE and DESCRIPTION
-# call coxph server side
-# client side function is here:
-# https://github.com/neelsoumya/dsBaseClient/blob/absolute_newbie_client/R/ds.coxph.SLMA.R
-# server side function is here:
-# https://github.com/neelsoumya/dsBase/blob/absolute_newbie/R/coxphSLMADS.R
 ```
 
 
-# Create survival object and call coxphSLMA()
+# Perform logistic regression
 
 
 * use constructed Surv object in *coxph.SLMA()*
 
-```
-dsBaseClient::ds.Surv(time='STARTTIME', time2='ENDTIME', 
-                      event = 'EVENT', objectname='surv_object',
-                      type='counting')
-
-coxph_model_full <- dsBaseClient::ds.coxph.SLMA(formula = 'surv_object~D$age+D$female')
-
-```
-
-* use direct inline call to *survival::Surv()*
-
-```
-
-ds.coxph.SLMA(formula = 'survival::Surv(time=SURVTIME,event=EVENT)~D$age+D$female', 
-                dataName = 'D', 
-                datasources = connections)
-
-```
-
-* call with *survival::strata()*
-
-```
-
-coxph_model_strata <- dsBaseClient::ds.coxph.SLMA(formula = 'surv_object~D$age + 
-                          survival::strata(D$female)')
-
-summary(coxph_model_strata)
-
-```
 
 
 ```{r, include=FALSE}
 
-# 1. use constructed surv object in coxph
-dsBaseClient::ds.Surv(time='STARTTIME', time2='ENDTIME', event = 'EVENT', objectname='surv_object', type='counting')
-coxph_model_full <- dsBaseClient::ds.coxph.SLMA(formula = 'surv_object~D$age+D$female')
+mylogit <- glm(flag_yes_no ~ metagene_score, 
+               data = df_metagene_score_final_TRAIN, 
+               family = "binomial")
+               
+               ######################################
+# Check linear model distributions
+#######################################
+miscstat$check_distribution(model = glm_object_best)
 
-# 2. use direct inline call
-ds.coxph.SLMA(formula = 'survival::Surv(time=SURVTIME,event=EVENT)~D$age+D$female', dataName = 'D', datasources = connections)
 
-# 3. Call with strata()
-coxph_model_strata <- dsBaseClient::ds.coxph.SLMA(formula = 'surv_object~D$age+survival::strata(D$female)')
-summary(coxph_model_strata)
+#######################################
+# Visualize parameter distributions
+# holds for linear mixed effects models lmer()
+#######################################
+# cris$visualize_fixed_effects_from_lmer(lmer_result = glm_object_best)
+# cris$fixed_effects_from_lmer(lmer_result = glm_object_best)
+
+
+###############################
+# predict on test set
+###############################
+prob = predict(mylogit, 
+               type=c("response"),
+               newdata = df_metagene_score_final_TEST)
+df_metagene_score_final_TEST$prob = prob
+
+
+###############################
+# Additional code to do 
+#   cross-validation NOT USED
+# on TRAINING SET
+###############################
+cost <- function(r, pi=0) mean(abs(r-pi)>0.5)
+cv_err <- cv.glm(data = df_metagene_score_final_TRAIN,
+                 K = 4,
+                 cost = cost,
+                 glmfit = mylogit
+)
+
+# can use the following to perform model selection if necessary
+cv_err$delta[1]
+
+
+###############################
+# Generate ROC curves
+#   on TEST SET
+###############################
+g <- pROC::roc(flag_yes_no ~ prob, data=df_metagene_score_final_TEST)
+
+plot(g)
+
+cat("AUC is:", g$auc)
+
+
+############################
+# Precision recall curve
+#     on test set
+############################
+mmdata_flag = mmdata(df_metagene_score_final_TEST$metagene_score,
+                     df_metagene_score_final_TEST$flag_yes_no)
+smcurves <- evalmod(mmdata_flag, raw_curves = TRUE)
+
+# We also show the precision recall curve below 
+# which is better suited for cases in which there are class imbalances.
+
+plot(smcurves, raw_curves = FALSE)
+
+############################
+# even better AUC and AUPR 
+# curves with areas reportet
+#   on TEST SET
+############################
+
+fg <- prob[df_metagene_score_final_TEST$flag_yes_no == 1]
+bg <- prob[df_metagene_score_final_TEST$flag_yes_no == 0]
+
+# ROC Curve    
+roc <- roc.curve(scores.class0 = fg, scores.class1 = bg, curve = TRUE)
+plot(roc)
+
+# PR Curve
+pr <- pr.curve(scores.class0 = fg, scores.class1 = bg, curve = TRUE)
+plot(pr)
+
+cat("AUPR is:", pr$auc.integral)
+
+
+##################################
+# Better AUPR plot using ggplot
+##################################
+source("convert_aupr_to_ggplot.R")
+
+i_y_line_threshold_signif_aupr = length(which(df_metagene_score_final$flag_yes_no == 1))/(length(which(df_metagene_score_final$flag_yes_no == 1)) + length(which(df_metagene_score_final$flag_yes_no == 0)))
+
+convert_aupr_to_ggplot(i_y_line_threshold_signif=i_y_line_threshold_signif_aupr, 
+                                   prroc_object=pr,
+                                   str_filename_save="aupr_ggplot.pdf")
 
 ```
 
@@ -322,60 +337,6 @@ dsBaseClient::ds.coxphSummary(x = 'coxph_serverside')
 
 ```
 
-
-
-# Meta-analyze hazard ratios
-
-We now outline how the hazard ratios from the survival models are meta-analyzed. 
-We use the *metafor* package for meta-analysis. We show the summary of an 
-example meta-analysis and a forest plot below. The forest plot shows a basic
-example of meta-analyzed hazard ratios from a survival model (analyzed in
-DataSHIELD).
-
-The log-hazard ratios and their standard erros from each study can be
-found after running *ds.coxphSLMA()*
-
-The hazard ratios can then be meta-analyzed:
-
-```
-
-metafor::rma(log_hazard_ratio, sei = se_hazard_ratio, method = 'REML')
-
-```
-
-A summary of this meta-analyzed model is shown below.
-
-
-```{r, echo=FALSE}
-
-# TODO: for each study
-for (i_temp_counter in c(1:length(coxph_model_full)))
-{
-      
-}
-
-# list of hazard ratios for first parameter (age) over 3 studies 
-input_logHR = c(coxph_model_full$study1$coefficients[1,2], coxph_model_full$study2$coefficients[1,2], coxph_model_full$study3$coefficients[1,2])
-input_se    = c(coxph_model_full$study1$coefficients[1,3], coxph_model_full$study2$coefficients[1,3], coxph_model_full$study3$coefficients[1,3])
-
-meta_model <- metafor::rma(input_logHR, sei = input_se, method = 'REML')
-summary(meta_model)
-
-#######################################################
-# forest plots of final meta-analyzed hazard ratios
-#######################################################
-```
-
-We now show a forest plot with the meta-analyzed hazard ratios. The hazard ratios come
-from the DataSHIELD function *ds.coxphSLMA()*. The hazard ratios are meta-analyzed
-using the *metafor* package.
-
-```{r fig.cap="Example forest plot of meta-analyzed hazard ratios.", echo=FALSE}
-
-metafor::forest.rma(x = meta_model)
-
-```    
-
 # Plotting of privacy-preserving survival curves
 
 We also plot privacy preserving survival curves.
@@ -407,11 +368,6 @@ dsBaseClient::ds.plotsurvfit(formula = 'survfit_object')
 DSI::datashield.logout(conns = connections)
 
 ```
-
-# Dealing with preserving privacy and disclosure checks
-
-Disclosure checks are an integral part of DataSHIELD. We outline some of the checks we have built in to ensure privacy of individual level data. We also outline some issues that need to be discussed.   
-
 
 
 # Acknowledgements
