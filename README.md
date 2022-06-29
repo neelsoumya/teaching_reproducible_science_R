@@ -225,7 +225,11 @@ misclang$library_or_install(REQUIRED_PACKAGES)
 
 ## Template code
 
+`example.rmd`
+
 https://github.com/neelsoumya/rlib/blob/master/rmarkdown_analysis_template.rmd
+
+
 
 ## Resources
 
