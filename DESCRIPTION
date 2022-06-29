@@ -1,0 +1,24 @@
+Package: teaching_reproducible_science_R
+Type: Package
+Title: teaching_reproducible_science_R: Teaching resources for reproducible research in R
+Version: 1.0
+Imports: bookdown,
+          ggplot2,
+          metafor,
+          survival,
+          meta,
+          rmarkdown,
+          knitr,
+          tinytex,
+          sqldf,
+          caret,
+          pheatmap,
+          lubridate,
+          lme4,
+          lmerTest,
+          nlme,
+          reshape,
+          reshape2,
+          glmnet,
+          shiny,
+          survminer
