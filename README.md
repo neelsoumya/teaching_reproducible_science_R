@@ -195,3 +195,12 @@ source(paste0(LIBRARY_PREFIX, "cris_common.R"))
 misclang$library_or_install(REQUIRED_PACKAGES)
 
 ```
+
+
+## Template code
+
+https://github.com/neelsoumya/rlib/blob/master/rmarkdown_analysis_template.rmd
+
+## Contact
+
+
