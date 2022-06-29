@@ -1,6 +1,32 @@
 # teaching_reproducible_science_R
 
-Teaching reproducible science in R
+## Introduction
+
+Material and notes for teaching reproducible science in R
+
+## Installation
+
+* Install R
+
+    https://www.r-project.org/
+
+* and R Studio
+
+https://www.rstudio.com/products/rstudio/download/preview/
+
+* Install the following packages in R:
+
+```r
+install.packages('rmarkdown')
+install.packages('knitr')
+install.packages('tinytex')
+install.packages('sqldf')
+install.packages('ggplot2')
+install.packages('gplots')
+install.packages('lme4')
+install.packages('lmerTest`)
+
+```
 
 ## Code
 
