@@ -272,4 +272,7 @@ https://github.com/neelsoumya/dsSurvival_bookdown
 
 ## Contact
 
+Soumya Banerjee
+
+sb2333@cam.ac.uk
 
