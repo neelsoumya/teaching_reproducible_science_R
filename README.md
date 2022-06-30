@@ -32,9 +32,34 @@ install.packages('boot')
 
 ```
 
+* Download a zip file of this repository and unzip it
+
+or
+
+clone it 
+
+```r
+git clone https://github.com/neelsoumya/teaching_reproducible_science_R
+
+cd teaching_reproducible_science_R
+```
+
+* Go to this new directory and set working directory to this directory in R.
+
+```r
+setwd('~/teaching_reproducible_science_R')
+```
+
+* In R studio, run the markdown
+
+
+`rmarkdown.rmd`
+
+https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/rmarkdown.rmd
+
 ## Code
 
-# A typical header of a R markdown file will look like
+A typical header of a R markdown file will look like
 
 ---
 
