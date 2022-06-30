@@ -51,7 +51,6 @@ We assume that the reader is familiar with these details.
 library(knitr)
 library(rmarkdown)
 library(tinytex)
-library(survival)
 library(pROC)
 library(precrec)
 library(PRROC)
