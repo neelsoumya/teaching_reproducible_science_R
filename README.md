@@ -25,6 +25,10 @@ install.packages('ggplot2')
 install.packages('gplots')
 install.packages('lme4')
 install.packages('lmerTest`)
+install.packages('pROC')
+install.packages('precrec')
+install.packages('PRROC')
+install.packages('boot')
 
 ```
 
