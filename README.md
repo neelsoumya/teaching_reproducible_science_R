@@ -258,6 +258,11 @@ misclang$library_or_install(REQUIRED_PACKAGES)
 
 https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/rmarkdown.rmd
 
+## Exercises
+
+Create an Rmarkdown for the Boston housing dataset. See the tutorial below and just load and plot the data.
+
+https://medium.com/analytics-vidhya/a-simple-ml-project-in-r-using-the-boston-dataset-e1143146ffb0
 
 
 ## Resources
@@ -269,6 +274,7 @@ https://ropensci.org/
 https://bookdown.org/home/
 
 https://github.com/neelsoumya/dsSurvival_bookdown
+
 
 ## Contact
 
