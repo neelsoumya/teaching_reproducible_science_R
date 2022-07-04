@@ -1,5 +1,8 @@
 # teaching_reproducible_science_R
 
+[![License](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
+
+
 ## Introduction
 
 Material and notes for teaching reproducible science in R
