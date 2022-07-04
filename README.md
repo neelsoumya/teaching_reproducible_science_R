@@ -60,7 +60,7 @@ setwd('~/teaching_reproducible_science_R')
 
 https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/rmarkdown.rmd
 
-## Code
+## Code and lecture notes
 
 A typical header of a R markdown file will look like
 
