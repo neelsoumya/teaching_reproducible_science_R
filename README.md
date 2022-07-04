@@ -5,7 +5,7 @@
 
 ## Introduction
 
-Material and notes for teaching reproducible science in R
+Material and notes for teaching reproducible science in R. 
 
 ## Installation
 
@@ -268,9 +268,11 @@ Create an Rmarkdown for the Boston housing dataset. See the tutorial below and j
 https://medium.com/analytics-vidhya/a-simple-ml-project-in-r-using-the-boston-dataset-e1143146ffb0
 
 
-## Resources
+## Resources and further reading
 
 https://rmarkdown.rstudio.com/lesson-1.html
+
+https://bookdown.org/yihui/rmarkdown-cookbook/
 
 https://ropensci.org/
 
