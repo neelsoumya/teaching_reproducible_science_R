@@ -23,3 +23,20 @@ library(caret)    # Creating train test sets
 data(“BostonHousing”)# For simplicity, lets call it 'housing'
 housing = BostonHousing
 
+
+####################
+#
+####################
+
+# The str() function gives the details about the types of variables(attributes). Its necessary that you understand the meaning of these attributes. You can get more details on the meaning of the attributes here.
+str(housing)
+
+####################
+# Plotting
+####################
+
+# TODO: Plotting
+
+# TODO: Density plot of Median Value of house prices
+
+
