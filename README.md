@@ -263,9 +263,13 @@ https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/rmarkdow
 
 ## Exercises
 
-Create an Rmarkdown for the Boston housing dataset. See the tutorial below and just load and plot the data.
+* Create an Rmarkdown for the Boston housing dataset. See the tutorial below and just load and plot the data.
 
 https://medium.com/analytics-vidhya/a-simple-ml-project-in-r-using-the-boston-dataset-e1143146ffb0
+
+* A simple script to help you get started is here `simple_script.R`
+
+https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/simple_project.R
 
 
 ## Resources and further reading
