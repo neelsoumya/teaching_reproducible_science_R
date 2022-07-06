@@ -8,9 +8,9 @@
 # load libraries
 ##################
 library(mlbench)  # Contains the Boston Housing Dataset
-library(dplyr)    # Basic manipulation functions
+# library(dplyr)    # Basic manipulation functions
 library(ggplot2)  # Graphs and plots
-library(reshape2) # To reshape data
+# library(reshape2) # To reshape data
 library(caret)    # Creating train test sets
 
 
