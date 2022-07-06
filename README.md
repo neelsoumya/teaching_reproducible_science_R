@@ -65,7 +65,17 @@ https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/rmarkdow
 
 ## Code and lecture notes
 
-A typical header of a R markdown file will look like
+* Your data and your model decisions and your data filtering decisions will keep on changing. How do you know 6 months later what has changed? Document your code and your output and your design decisions all in one place.
+
+* Reproducible pipeline
+
+* Know exactly what changed and when
+
+* Know how to rerun the analysis and get the (same) results
+
+* This is like your research notebook
+
+* A typical header of a R markdown file will look like
 
 ---
 
