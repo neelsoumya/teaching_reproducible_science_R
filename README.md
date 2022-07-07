@@ -77,6 +77,8 @@ https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/rmarkdow
 
 * A typical header of a R markdown file will look like
 
+```r
+
 ---
 
 title: "Analysis and Writeup"
@@ -199,26 +201,6 @@ library(lme4)
 
 library(lmerTest)
 
-library(lubridate)
-
-library(reshape2)
-
-library(data.table)
-
-library(pheatmap)
-
-library(cba)
-
-library(rstanarm)
-
-library(shinystan)
-
-library(rstantools) # make a rstanarm package
-
-library(bayesplot)
-
-library("factoextra") #install_github("kassambara/factoextra")
-
 library(rpart)
 
 REQUIRED_PACKAGES <- c(
@@ -264,6 +246,8 @@ source(paste0(LIBRARY_PREFIX, "stanfunc.R"))
 source(paste0(LIBRARY_PREFIX, "cris_common.R"))
 
 misclang$library_or_install(REQUIRED_PACKAGES)
+
+```
 
 ```
 
