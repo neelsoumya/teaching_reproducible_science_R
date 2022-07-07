@@ -203,53 +203,14 @@ library(lmerTest)
 
 library(rpart)
 
-REQUIRED_PACKAGES <- c(
+```
 
-  "car",  # may need: sudo apt install libgfortran3
+```{r, echo=FALSE}
 
-  "data.table",
-
-  "ggplot2",
-
-  "lubridate",
-
-  "RODBC",
-
-  "shinystan"
-
-  # "survival"
-
-  # "timereg"
-
-)
-
-LIBRARY_PREFIX <- "https://egret.psychol.cam.ac.uk/rlib/"
-
-#source(paste0(LIBRARY_PREFIX, "datetimefunc.R"))
-
-source("datetimefunc.R")
-
-source(paste0(LIBRARY_PREFIX, "dbfunc.R"))
-
-source(paste0(LIBRARY_PREFIX, "listfunc.R"))
-
-source(paste0(LIBRARY_PREFIX, "listassign.R"))
-
-source(paste0(LIBRARY_PREFIX, "miscfile.R"))
-
-source(paste0(LIBRARY_PREFIX, "misclang.R"))
-
-source(paste0(LIBRARY_PREFIX, "miscstat.R"))
-
-source(paste0(LIBRARY_PREFIX, "stanfunc.R"))
-
-source(paste0(LIBRARY_PREFIX, "cris_common.R"))
-
-misclang$library_or_install(REQUIRED_PACKAGES)
+# code here
 
 ```
 
-```
 
 
 ## Template code
