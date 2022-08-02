@@ -63,6 +63,42 @@ setwd('~/teaching_reproducible_science_R')
 
 https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/rmarkdown.rmd
 
+
+
+
+## Template code
+
+`rmarkdown.rmd`
+
+https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/rmarkdown.rmd
+
+
+## Exercises
+
+* Create an Rmarkdown for the Boston housing dataset. See the tutorial below and just load and plot the data.
+
+https://medium.com/analytics-vidhya/a-simple-ml-project-in-r-using-the-boston-dataset-e1143146ffb0
+
+* A simple script to help you get started is here `simple_script.R`
+
+https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/simple_project.R
+
+
+## Resources and further reading
+
+https://rmarkdown.rstudio.com/lesson-1.html
+
+https://bookdown.org/yihui/rmarkdown-cookbook/
+
+https://ropensci.org/
+
+https://bookdown.org/home/
+
+https://github.com/neelsoumya/dsSurvival_bookdown
+
+
+
+
 ## Code and lecture notes
 
 * Your data, your model decisions, parameters and your data filtering decisions will keep on changing. How do you know 6 months later what has changed? Document your code and your output and your design decisions all in one place.
@@ -75,7 +111,7 @@ https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/rmarkdow
 
 * This is like your research notebook
 
-* Some experiences/case studies of using Rmarkdown notebooks and helping biologists use them to analyze their own data
+* Some experiences/case studies of using Rmarkdown notebooks and helping biologists use them to analyze their own data (30 minute talk)
 
 * A typical header of a R markdown file will look like
 
@@ -212,37 +248,6 @@ library(rpart)
 # code here
 
 ```
-
-
-
-## Template code
-
-`rmarkdown.rmd`
-
-https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/rmarkdown.rmd
-
-## Exercises
-
-* Create an Rmarkdown for the Boston housing dataset. See the tutorial below and just load and plot the data.
-
-https://medium.com/analytics-vidhya/a-simple-ml-project-in-r-using-the-boston-dataset-e1143146ffb0
-
-* A simple script to help you get started is here `simple_script.R`
-
-https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/simple_project.R
-
-
-## Resources and further reading
-
-https://rmarkdown.rstudio.com/lesson-1.html
-
-https://bookdown.org/yihui/rmarkdown-cookbook/
-
-https://ropensci.org/
-
-https://bookdown.org/home/
-
-https://github.com/neelsoumya/dsSurvival_bookdown
 
 
 ## Contact
