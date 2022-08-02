@@ -34,6 +34,8 @@ install.packages('PRROC')
 install.packages('boot')
 install.packages('mlbench')
 install.packages('caret')
+install.packages('rpart')
+install.packages('partykit')
 
 
 ```
