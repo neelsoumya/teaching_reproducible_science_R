@@ -227,8 +227,6 @@ library(gplots)
 
 library(RColorBrewer)
 
-library(reshape2)
-
 library(png)
 
 library(grid)
