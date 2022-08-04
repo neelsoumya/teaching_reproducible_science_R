@@ -100,7 +100,7 @@ https://github.com/neelsoumya/dsSurvival_bookdown
 
 https://www.coursera.org/learn/r-programming
 
-
+https://swcarpentry.github.io/r-novice-gapminder/guide/index.html
 
 
 ## Code and lecture notes
