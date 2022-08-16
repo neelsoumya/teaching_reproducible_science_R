@@ -128,7 +128,7 @@ ds.asNumeric(x.name = "D$endtime",
 
 ```{r, include=FALSE}
 
-RAIN = sample(c(TRUE,FALSE),
+TRAIN = sample(c(TRUE,FALSE),
                   nrow(df_metagene_score_final),
                   replace = TRUE)
 
