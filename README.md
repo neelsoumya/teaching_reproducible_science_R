@@ -123,6 +123,8 @@ https://swcarpentry.github.io/r-novice-gapminder/guide/index.html
 
 * The concepts are the same in any programming language (R/Python)
 
+* You can easily create packages or Rmarkdown documents in R Studio (see screenshots in this folder/repository)
+
 * A typical header of a R markdown file will look like
 
 ```r
