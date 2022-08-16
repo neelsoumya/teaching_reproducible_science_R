@@ -103,7 +103,7 @@ https://www.coursera.org/learn/r-programming
 https://swcarpentry.github.io/r-novice-gapminder/guide/index.html
 
 
-## Code and lecture notes
+## Code and lecture notes outline
 
 * Your data, your model decisions, parameters and your data filtering decisions will keep on changing. How do you know 6 months later what has changed? Document your code and your output and your design decisions all in one place.
 
