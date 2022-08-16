@@ -36,7 +36,10 @@ install.packages('mlbench')
 install.packages('caret')
 install.packages('rpart')
 install.packages('partykit')
-
+install.packages('rlib')
+install.packages('multcomp')
+install.packages('lsmeans')
+install.packages('moments')
 
 ```
 
