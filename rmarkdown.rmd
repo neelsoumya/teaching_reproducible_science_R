@@ -73,7 +73,6 @@ df_metagene_score_final_TEST  = df_metagene_score_final[TEST,]
 # Perform logistic regression
 
 
-* use constructed Surv object in *coxph.SLMA()*
 
 
 
@@ -86,7 +85,7 @@ mylogit <- glm(flag_yes_no ~ metagene_score,
                ######################################
 # Check linear model distributions
 #######################################
-miscstat$check_distribution(model = glm_object_best)
+miscstat$check_distribution(model = mylogit)
 
 
 #######################################
