@@ -121,15 +121,17 @@ https://swcarpentry.github.io/r-novice-gapminder/guide/index.html
 
 * Example of IL10 project (tSNE and heatmaps from a bioinformatics project)
 
-![Example tSNE and heatmaps](https://gut.bmj.com/content/gutjnl/70/6/1023/F3.large.jpg)
+![Example tSNE ](https://gut.bmj.com/content/gutjnl/70/6/1023/F3.large.jpg)
 
-* The concepts are the same in any programming language (R/Python)
+![Example heatmaps](https://gut.bmj.com/content/gutjnl/70/6/1023/F5.large.jpg)
 
 * You can easily create R packages or Rmarkdown documents in R Studio (see screenshots in this folder/repository and below)
 
 ![A screenshot of how to create R packages in R Studio](R_package.png)
 
 ![A screenshot of how to create R markdowns in R Studio](R_rmarkdown.png)
+
+* The concepts are the same in any programming language (R/Python)
 
 * A typical header of a R markdown file will look like
 
