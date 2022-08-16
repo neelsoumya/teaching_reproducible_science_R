@@ -1,7 +1,7 @@
 ---
-title: "Meta-analysis of survival models in the DataSHIELD platform"
+title: "Simple demo of rmarkdown"
 author: "Soumya Banerjee"
-date: "30 April 2021"
+date: "30 August 2022"
 output:
   pdf_document:
     toc: yes
@@ -19,29 +19,7 @@ knitr::opts_chunk$set(echo=TRUE)
 
 # Summary
 
-This is a document that outlines technical notes and a development plan for implementing survival models
-and meta-analyzing hazard ratios in the DataSHIELD platform.
-
-# Survival analysis in DataSHIELD
-
-We outline the development and code for implementing survival models and meta-analysis
-of hazard ratios in DataSHIELD.
-
-All code is available here:
-
-   * https://github.com/neelsoumya/dsBaseClient/tree/absolute_newbie_client
-   
-   * https://github.com/neelsoumya/dsBase/tree/absolute_newbie
-   
-   * https://github.com/neelsoumya/datashield_testing_basic/blob/master/development_plan.rmd
-   
-   * https://github.com/neelsoumya/datashield_testing_basic/blob/master/development_plan.pdf
-   
-
-The computational steps are outlined below. 
-The first step is connecting to the server and loading the survival data.
-We assume that the reader is familiar with these details.
-
+This is a document that outlines a demo of an R markdown.
 
 ```{r, include = FALSE}
 
@@ -74,55 +52,7 @@ df_metagene_score_final = read.csv('metagene_score.csv',
 
 todo histogram
 
-# Creating server-side variables for survival analysis
 
-We now outline some steps for analysing survival data.
-
-* make sure that the outcome variable is numeric 
-
-```
-ds.asNumeric(x.name = "D$cens",
-             newobj = "EVENT",
-             datasources = connections)
-
-ds.asNumeric(x.name = "D$survtime",
-             newobj = "SURVTIME",
-             datasources = connections)
-```
-
-*  convert time id variable to a factor 
-
-```
-
-ds.asFactor(input.var.name = "D$time.id",
-            newobj = "TID",
-            datasources = connections)
-
-```
-
-*  create in the server-side the log(survtime) variable
-
-```
-
-ds.log(x = "D$survtime",
-       newobj = "log.surv",
-       datasources = connections)
-
-```
-
-*  create start time variable
-
-```
-
-ds.asNumeric(x.name = "D$starttime",
-             newobj = "STARTTIME",
-             datasources = connections)
-
-ds.asNumeric(x.name = "D$endtime",
-             newobj = "ENDTIME",
-             datasources = connections)
-
-```
 
 
 
@@ -255,20 +185,7 @@ convert_aupr_to_ggplot(i_y_line_threshold_signif=i_y_line_threshold_signif_aupr,
    
 
 
-# Acknowledgements
 
-We acknowledge the help and support of the DataSHIELD technical team.
-We are especially grateful to Paul Burton, Demetris Avraam, Stuart Wheater and
-Patricia Ryser-Welch for fruitful discussions and feedback.
-
-
-# References
-
-  * https://github.com/datashield
-  
-  * http://www.metafor-project.org
-  
-  * https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6015946
   
   
   
