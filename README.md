@@ -103,7 +103,7 @@ https://www.coursera.org/learn/r-programming
 https://swcarpentry.github.io/r-novice-gapminder/guide/index.html
 
 
-## Code and lecture notes outline
+## Lecture notes outline
 
 * Your data, your model decisions, parameters and your data filtering decisions will keep on changing. How do you know 6 months later what has changed? Document your code and your output and your design decisions all in one place.
 
@@ -136,6 +136,14 @@ https://swcarpentry.github.io/r-novice-gapminder/guide/index.html
 * Bottomline: we are all busy and we would all rather publish papers, but in the long term these best practices will make us more produtive
 
 * This is like protocols (used in experimental biology) for computer scientists
+
+
+
+# Code examples 
+
+* A very simple R markdown will look like the following
+
+![Schematic of R markdown](example_code.png)
 
 * A typical header of a R markdown file will look like
 
