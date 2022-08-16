@@ -119,6 +119,10 @@ https://swcarpentry.github.io/r-novice-gapminder/guide/index.html
 
 * When you are deep in your work, it can be difficult to make code pretty, comment it and make it reproducible. But you will regret not doing this when you park the work and 6 months later your colloaborators/reviewers ask for additional analysis or changing some assumption, etc. Your code should then be ready (you should be able to click a button and reproduce the figures for your paper). 
 
+* Example of IL10 project
+
+* The concepts are the same in any programming language (R/Python)
+
 * A typical header of a R markdown file will look like
 
 ```r
