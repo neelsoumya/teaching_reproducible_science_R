@@ -119,11 +119,17 @@ https://swcarpentry.github.io/r-novice-gapminder/guide/index.html
 
 * When you are deep in your work, it can be difficult to make code pretty, comment it and make it reproducible. But you will regret not doing this when you park the work and 6 months later your colloaborators/reviewers ask for additional analysis or changing some assumption, etc. Your code should then be ready (you should be able to click a button and reproduce the figures for your paper). 
 
-* Example of IL10 project
+* Example of IL10 project (tSNE and heatmaps from a bioinformatics project)
+
+![Example tSNE and heatmaps](https://gut.bmj.com/content/gutjnl/70/6/1023/F3.large.jpg)
 
 * The concepts are the same in any programming language (R/Python)
 
-* You can easily create packages or Rmarkdown documents in R Studio (see screenshots in this folder/repository)
+* You can easily create R packages or Rmarkdown documents in R Studio (see screenshots in this folder/repository and below)
+
+![A screenshot of how to create R packages in R Studio](R_package.png)
+
+![A screenshot of how to create R markdowns in R Studio](R_rmarkdown.png)
 
 * A typical header of a R markdown file will look like
 
