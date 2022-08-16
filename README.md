@@ -133,6 +133,10 @@ https://swcarpentry.github.io/r-novice-gapminder/guide/index.html
 
 * The concepts are the same in any programming language (R/Python)
 
+* Bottomline: we are all busy and we would all rather publish papers, but in the long term these best practices will make us more produtive
+
+* This is like protocols (used in experimental biology) for computer scientists
+
 * A typical header of a R markdown file will look like
 
 ```r
