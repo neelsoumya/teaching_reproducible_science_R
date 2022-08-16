@@ -90,7 +90,7 @@ mylogit <- glm(flag_yes_no ~ metagene_score,
                ######################################
 # Check linear model distributions
 #######################################
-miscstat$check_distribution(model = mylogit)
+# miscstat$check_distribution(model = mylogit)
 
 
 #######################################
