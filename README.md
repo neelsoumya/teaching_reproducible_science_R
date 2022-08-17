@@ -5,7 +5,7 @@
 
 ## Introduction
 
-Material and notes for teaching reproducible science in R. 
+Material and notes for teaching reproducible science and pipelines in R. 
 
 ## Installation
 
@@ -137,10 +137,13 @@ https://swcarpentry.github.io/r-novice-gapminder/guide/index.html
 
 * The concepts are the same in any programming language (R/Python)
 
-* Bottomline: we are all busy and we would all rather publish papers, but in the long term these best practices will make us more produtive
+* Bottomline: we are all busy and we would all rather publish papers, but in the long term these best practices will make us more productive
 
-* This is like protocols (used in experimental biology) for computer scientists
+* This is like protocols (used in experimental biology) for computer scientists. Also like a lab notebook but for computational people.
 
+* You can also write an entire paper in R markdown, where each figure is generated from the code
+
+* A short demonstration in R studio of how to create an R markdown document
 
 
 # Code examples 
@@ -148,6 +151,7 @@ https://swcarpentry.github.io/r-novice-gapminder/guide/index.html
 * A very simple R markdown will look like the following
 
 ![Schematic of R markdown](example_code.png)
+
 
 * A typical header of a R markdown file will look like
 
