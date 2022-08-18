@@ -78,6 +78,11 @@ https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/rmarkdow
 
 https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/rmarkdown.rmd
 
+Running this will create a report like the following:
+
+https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/rmarkdown.pdf
+
+
 
 ## Exercises
 
