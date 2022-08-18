@@ -81,7 +81,7 @@ df_metagene_score_final_TEST  = df_metagene_score_final[TEST,]
 
 
 
-```{r, include=FALSE}
+```{r, echo=FALSE}
 
 mylogit <- glm(flag_yes_no ~ metagene_score, 
                data = df_metagene_score_final_TRAIN, 
