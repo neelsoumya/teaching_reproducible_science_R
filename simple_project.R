@@ -20,7 +20,7 @@ library(caret)    # Creating train test sets
 
 # Load the Boston Housing dataset in the object named 
 # 'BostonHousing'
-data(“BostonHousing”)# For simplicity, lets call it 'housing'
+data('BostonHousing')# For simplicity, lets call it 'housing'
 housing = BostonHousing
 
 
