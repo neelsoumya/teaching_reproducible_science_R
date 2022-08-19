@@ -158,6 +158,24 @@ https://swcarpentry.github.io/r-novice-gapminder/guide/index.html
 ![Schematic of R markdown](example_code.png)
 
 
+* Here are some very simple commands that you use to generate your document (you write your code in R and it gets compiled into a document like PDF)
+
+![Basic elements of markdown](basic_markdown.png)
+
+* Now head over to the file named `rmarkdown.rmd`
+
+https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/rmarkdown.rmd
+
+Running this will create a report like the following:
+
+https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/rmarkdown.pdf
+
+
+![Screenshot of completed report](complete_report.png)
+
+
+
+
 * A typical header of a R markdown file will look like
 
 ```r
@@ -291,19 +309,6 @@ library(rpart)
 # code here
 
 ```
-
-
-* Now head over to the file named `rmarkdown.rmd`
-
-https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/rmarkdown.rmd
-
-Running this will create a report like the following:
-
-https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/rmarkdown.pdf
-
-
-![Screenshot of completed report](complete_report.png)
-
 
 
 ## Contact
