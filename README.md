@@ -162,6 +162,10 @@ https://swcarpentry.github.io/r-novice-gapminder/guide/index.html
 
 ![Basic elements of markdown](basic_markdown.png)
 
+See the link below for more details
+
+https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
+
 * Now head over to the file named `rmarkdown.rmd`
 
 https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/rmarkdown.rmd
