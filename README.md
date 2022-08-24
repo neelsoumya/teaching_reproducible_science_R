@@ -150,6 +150,7 @@ https://swcarpentry.github.io/r-novice-gapminder/guide/index.html
 
 * A short demonstration in R studio of how to create an R markdown document
 
+* A bridge into R and Python: issues with each (Ahmad and Soumya). Issues with each.
 
 # Code examples 
 
