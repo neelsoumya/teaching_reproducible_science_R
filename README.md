@@ -111,6 +111,8 @@ https://www.coursera.org/learn/r-programming
 
 https://swcarpentry.github.io/r-novice-gapminder/guide/index.html
 
+https://github.com/aaronpeikert/repro-workshop
+
 
 ## Lecture notes outline
 
