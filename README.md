@@ -116,6 +116,8 @@ https://github.com/aaronpeikert/repro-workshop
 
 ## Lecture notes outline
 
+https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/slides.pdf
+
 * Your data, your model decisions, parameters and your data filtering decisions will keep on changing. How do you know 6 months later what has changed? Document your code and your output and your design decisions all in one place.
 
 * Reproducible pipeline
