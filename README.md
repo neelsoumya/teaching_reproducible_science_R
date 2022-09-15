@@ -154,7 +154,13 @@ https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/slides.p
 
 * A short demonstration in R studio of how to create an R markdown document
 
-* A bridge into R and Python: issues with each (Ahmad and Soumya). Pandocs solution by Neil.
+* A bridge into R and Python: issues with each (Ahmad and Soumya). Pandocs solution by Neil. See `tst.md` file.
+
+    Command is 
+    
+    ```r
+    pandoc tst.md -o test.ipynb
+    ```
 
 # Code examples 
 
