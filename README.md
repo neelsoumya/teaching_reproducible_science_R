@@ -144,6 +144,16 @@ https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/slides.p
 
 ![A screenshot of how to create R markdowns in R Studio](R_rmarkdown.png)
 
+* You can also easily create graphical user interfaces
+
+    Here is a demo:
+    
+    https://sb2333medschl.shinyapps.io/shinyapp/
+    
+    and code `app.R`:
+    
+    https://github.com/neelsoumya/teaching_reproducible_science_R/blob/main/shinyapp/app.R
+
 * The concepts are the same in any programming language (R/Python)
 
 * Bottomline: we are all busy and we would all rather publish papers, but in the long term these best practices will make us more productive
