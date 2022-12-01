@@ -7,6 +7,10 @@
 
 Material, notes and code for teaching reproducible science and pipelines in R. 
 
+## Video lectures
+
+https://www.youtube.com/watch?v=ZDSj-jEoaoc
+
 ## Installation
 
 * Install R
