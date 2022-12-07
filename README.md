@@ -5,7 +5,7 @@
 
 ## Introduction
 
-Material, notes and code for teaching reproducible science and pipelines in R. 
+Material, notes, code and data for teaching reproducible science and pipelines in R. 
 
 ## Video lectures
 
