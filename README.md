@@ -343,6 +343,9 @@ library(rpart)
 
 ```
 
+## Acknowledgements
+
+Joyeeta Ghose
 
 ## Contact
 
