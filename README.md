@@ -11,6 +11,10 @@ Material, notes, code and data for teaching reproducible science and pipelines i
 
 https://www.youtube.com/watch?v=ZDSj-jEoaoc
 
+## Other course material
+
+https://ac812.github.io/reproducibility-training/rmarkdown.html
+
 ## Installation
 
 * Install R
