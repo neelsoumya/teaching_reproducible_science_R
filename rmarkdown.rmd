@@ -38,9 +38,10 @@ library(rlib)
 # LIBRARY_PREFIX <- "https://egret.psychol.cam.ac.uk/rlib/"
 # source(paste0(LIBRARY_PREFIX, "cris_common.R"))
 
-source("https://raw.githubusercontent.com/neelsoumya/rlib/master/cris_common.R")
-
-source("https://raw.githubusercontent.com/neelsoumya/rlib/master/miscstat.R")
+# source("https://raw.githubusercontent.com/neelsoumya/rlib/master/cris_common.R")
+source("cris_common.R")
+source("miscstat.R")
+# source("https://raw.githubusercontent.com/neelsoumya/rlib/master/miscstat.R")
 
 
 #######################
